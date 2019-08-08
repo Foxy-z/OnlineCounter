@@ -16,7 +16,6 @@ public class ConnectionListeners implements Listener {
 
     @EventHandler
     public void on(PlayerDisconnectEvent event) {
-        // check if player is in count or not
         Counter.update(BungeeCord.getInstance().getOnlineCount() - 1);
     }
 }
