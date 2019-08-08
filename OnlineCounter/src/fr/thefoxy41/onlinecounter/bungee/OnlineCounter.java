@@ -48,6 +48,11 @@ public class OnlineCounter extends net.md_5.bungee.api.plugin.Plugin implements 
         return "BungeeCord";
     }
 
+    @Override
+    public void runAsync(Runnable runnable) {
+        BungeeCord.getInstance().getScheduler().runAsync(this, runnable);
+    }
+
     public void log(String message) {
         BungeeCord.getInstance().getConsole().sendMessage("[" + INSTANCE.getDescription().getName() + "] " + message);
     }

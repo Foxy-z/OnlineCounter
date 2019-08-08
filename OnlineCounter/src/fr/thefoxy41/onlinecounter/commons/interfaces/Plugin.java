@@ -6,4 +6,6 @@ public interface Plugin {
     String getPluginFolder();
 
     String getServerName();
+
+    void runAsync(Runnable runnable);
 }

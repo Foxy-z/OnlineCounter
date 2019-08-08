@@ -7,6 +7,7 @@ import fr.thefoxy41.onlinecounter.commons.interfaces.Plugin;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class OnlineCounter extends JavaPlugin implements Plugin {
     public static OnlineCounter INSTANCE;
@@ -47,6 +48,11 @@ public class OnlineCounter extends JavaPlugin implements Plugin {
     @Override
     public String getServerName() {
         return Bukkit.getServerName();
+    }
+
+    @Override
+    public void runAsync(Runnable runnable) {
+        Bukkit.getScheduler().runTaskAsynchronously(this, runnable);
     }
 
     public void log(String message) {
