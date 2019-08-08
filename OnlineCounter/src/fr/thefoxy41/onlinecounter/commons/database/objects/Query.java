@@ -4,6 +4,7 @@ import fr.thefoxy41.onlinecounter.commons.database.DatabaseConfig;
 import fr.thefoxy41.onlinecounter.commons.database.DatabaseManager;
 import fr.thefoxy41.onlinecounter.commons.database.exceptions.DatabaseConnectionException;
 import fr.thefoxy41.onlinecounter.commons.database.exceptions.DatabaseQueryException;
+import net.md_5.bungee.BungeeCord;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -50,11 +51,10 @@ public class Query {
         }
     }
 
-    public void insertOrUpdate(String query) throws DatabaseQueryException {
+    public void insertOrUpdate(String query) throws SQLException {
         try {
             statement = connection.prepareStatement("INSERT INTO " + DatabaseConfig.COUNT_TABLE + " " + query);
-        } catch (SQLException e) {
-            throw new DatabaseQueryException("Error occurred while insert query in main database");
+            statement.execute();
         } finally {
             try {
                 if (statement != null) statement.close();
