@@ -1,0 +1,6 @@
+host: localhost
+port: 3306
+user: user
+password: password
+name: database_name
+table: table_for_player_count

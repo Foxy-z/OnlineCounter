@@ -1,0 +1,4 @@
+name: OnlineCounter
+author: TheFoxy41
+version: 0.0.1
+main: fr.thefoxy41.onlinecounter.bukkit.OnlineCounter
