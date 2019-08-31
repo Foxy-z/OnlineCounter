@@ -7,17 +7,15 @@ import fr.thefoxy41.onlinecounter.commons.interfaces.Plugin;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 public class OnlineCounter extends JavaPlugin implements Plugin {
-    public static OnlineCounter INSTANCE;
 
     @Override
     public void onEnable() {
-        INSTANCE = this;
 
         GlobalConfiguration.init(this);
 
+        // try to connect to database
         try {
             DatabaseManager.initDataBaseConnection();
         } catch (Exception e) {
@@ -56,6 +54,6 @@ public class OnlineCounter extends JavaPlugin implements Plugin {
     }
 
     public void log(String message) {
-        Bukkit.getConsoleSender().sendMessage("[" + INSTANCE.getName() + "] " + message);
+        Bukkit.getConsoleSender().sendMessage("[" + this.getName() + "] " + message);
     }
 }
