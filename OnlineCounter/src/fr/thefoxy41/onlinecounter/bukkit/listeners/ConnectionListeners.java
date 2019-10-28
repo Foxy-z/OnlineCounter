@@ -11,11 +11,11 @@ public class ConnectionListeners implements Listener {
 
     @EventHandler
     public void on(PlayerJoinEvent event) {
-        Counter.update(Bukkit.getOnlinePlayers().size());
+        Counter.update(Bukkit.getServer().getOnlinePlayers().size());
     }
 
     @EventHandler
     public void on(PlayerQuitEvent event) {
-        Counter.update(Bukkit.getOnlinePlayers().size() - 1);
+        Counter.update(Bukkit.getServer().getOnlinePlayers().size() - 1);
     }
 }

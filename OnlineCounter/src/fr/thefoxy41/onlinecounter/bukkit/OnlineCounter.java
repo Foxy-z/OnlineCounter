@@ -12,7 +12,6 @@ public class OnlineCounter extends JavaPlugin implements Plugin {
 
     @Override
     public void onEnable() {
-
         GlobalConfiguration.init(this);
 
         // try to connect to database
